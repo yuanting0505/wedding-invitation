@@ -18,19 +18,6 @@ export class KonvaImage extends React.Component {
   };
 
   render() {
-    let props = {image: this.state.image};
-    if (this.props.width) {
-      props.width = this.props.width;
-    }
-    if (this.props.height) {
-      props.height = this.props.height;
-    }
-    if (this.props.x) {
-      props.x = this.props.x;
-    }
-    if (this.props.y) {
-      props.y = this.props.y;
-    }
-    return <Image {...props}/>;
+    return <Image {...{...this.props, image: this.state.image}}/>;
   }
 }
