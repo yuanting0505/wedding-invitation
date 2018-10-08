@@ -12,6 +12,7 @@ class App extends Component {
     const front = this.stage.find('.front')[0];
     front.find('.word').visible(false);
     this.ting = front.find('.ting')[0];
+    this.ting.moveToTop();
     this.di = front.find('.di')[0];
     this.conti = front.find('.conti')[0];
   };
@@ -23,7 +24,7 @@ class App extends Component {
     } else {
       this.conti.visible(false);
       this.ting.position({
-        x: this.di.x(),
+        x: this.di.x()-6,
         y: this.di.y()
       });
     }
