@@ -5,8 +5,7 @@ export class Middle extends React.Component {
   render() {
     return (
         <Rect
-        fill="#CB4042"
-        opacity={0.98}
+        fill="#F8C3CD"
         width={window.innerWidth}
         height={window.innerHeight}
       />

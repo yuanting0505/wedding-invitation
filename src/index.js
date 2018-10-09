@@ -9,11 +9,11 @@ import './index.css';
 
 class App extends Component {
   componentDidMount() {
-    const front = this.stage.find('.front')[0];
-    this.ting = front.find('.ting')[0];
-    this.di = front.find('.di')[0];
-    this.conti = front.find('.conti')[0];
-    this.word = front.find('.word')[0];
+    this.front = this.stage.find('.front')[0];
+    this.ting = this.front.find('.ting')[0];
+    this.di = this.front.find('.di')[0];
+    this.conti = this.front.find('.conti')[0];
+    this.word = this.front.find('.word')[0];
     this.bgColor = this.stage.find('.middle')[0];
   }
   onDragStart = () => {
@@ -36,19 +36,22 @@ class App extends Component {
       });
       this.bgColor.to({
         opacity: 0,
-        duration: 2,
+        duration: 3,
         easing: Konva.Easings.EaseIn
       });
       this.ting.to({
         opacity: 0,
-        duration: 3,
-        easing: Konva.Easings.EaseOut
+        duration: 6,
+        easing: Konva.Easings.EaseInOut
       });
       this.di.to({
         opacity: 0,
-        duration: 3,
-        easing: Konva.Easings.EaseOut
+        duration: 6,
+        easing: Konva.Easings.EaseInOut
       });
+      setTimeout(()=>{
+        this.front.moveToBottom();
+      }, 6000);
     }
     this.stage.draw();
   };
