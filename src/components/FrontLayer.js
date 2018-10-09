@@ -9,9 +9,9 @@ export class Front extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <KonvaImage image={ting} x={-50} y={-100} width={400} height={450} draggable={true} name="ting"/>
-        <KonvaImage image={di} x={window.innerWidth - 270} y={window.innerHeight - 400} width={390} height={450} name="di"/>
-        <KonvaImage image={word} x={120} y={150} width={250} height={50} name="word"/>
+        <KonvaImage image={ting} x={10} y={10} width={140} height={210} draggable={true} name="ting"/>
+        <KonvaImage image={di} x={window.innerWidth - 100} y={window.innerHeight - 250} width={75} height={250} name="di"/>
+        <KonvaImage image={word} x={120} y={120} width={200} height={40} name="word"/>
         <KonvaImage image={conti} x={50} y={50} width={200} height={40} name="conti" visible={false}/>
       </React.Fragment>
     );
