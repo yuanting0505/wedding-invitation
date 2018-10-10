@@ -10,11 +10,24 @@ import './index.css';
 class App extends Component {
   componentDidMount() {
     this.front = this.stage.find('.front')[0];
+    this.middle = this.stage.find('.middle')[0];
+
+    // front layer
     this.ting = this.front.find('.ting')[0];
     this.di = this.front.find('.di')[0];
     this.conti = this.front.find('.conti')[0];
     this.word = this.front.find('.word')[0];
-    this.bgColor = this.stage.find('.middle')[0];
+    this.coupleGroup = new Konva.Group();
+    this.coupleGroup.add(this.ting, this.di);
+    this.front.add(this.coupleGroup);
+
+    // middle layer
+    const bgColor = this.middle.find('.bg-color')[0];
+    const flowerLeft = this.middle.find('.flower-left')[0];
+    const flowerRight = this.middle.find('.flower-right')[0];
+    this.bgGroup = new Konva.Group();
+    this.bgGroup.add(bgColor, flowerLeft, flowerRight);
+    this.middle.add(this.bgGroup);
   }
   onDragStart = () => {
     this.word.visible(false);
@@ -23,8 +36,6 @@ class App extends Component {
   onDragEnd = () => {
     const xdiff = Math.abs(this.ting.x() - this.di.x());
     const ydiff = Math.abs(this.ting.y() - this.di.y());
-    console.log(xdiff)
-    console.log(ydiff)
 
     if (xdiff > 150 || ydiff > 20) {
       this.conti.visible(true);
@@ -34,17 +45,12 @@ class App extends Component {
         x: this.di.x() - 112,
         y: this.di.y() + 20
       });
-      this.bgColor.to({
+      this.bgGroup.to({
         opacity: 0,
         duration: 3,
         easing: Konva.Easings.EaseIn
       });
-      this.ting.to({
-        opacity: 0,
-        duration: 6,
-        easing: Konva.Easings.EaseInOut
-      });
-      this.di.to({
+      this.coupleGroup.to({
         opacity: 0,
         duration: 6,
         easing: Konva.Easings.EaseInOut
